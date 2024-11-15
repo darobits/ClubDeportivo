@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\views\\usuario\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\views\\usuario\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\models\\usuariocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\models\\usuariocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|c:\\users\\iqual\\source\\repos\\appclubdeportivo\\appclubdeportivo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5604584D-661F-461A-90AB-77E44AD0B223}|AppClubDeportivo\\AppClubDeportivo.csproj|solutionrelative:appclubdeportivo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Usuario\\Register.cshtml",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Views\\Usuario\\Register.cshtml",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Usuario\\Register.cshtml",
+              "RelativeToolTip": "AppClubDeportivo\\Views\\Usuario\\Register.cshtml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwDUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-15T01:32:09.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Usuario\\Login.cshtml",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Usuario\\Login.cshtml",
+              "RelativeToolTip": "AppClubDeportivo\\Views\\Usuario\\Login.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-15T01:31:38.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AppClubDeportivo\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-15T01:06:18.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Program.cs",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Program.cs",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Program.cs",
+              "RelativeToolTip": "AppClubDeportivo\\Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T23:52:10.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "AppClubDeportivo\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA3wDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T23:49:34.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Data\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Data\\AppDBContext.cs",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Data\\AppDBContext.cs",
+              "RelativeToolTip": "AppClubDeportivo\\Data\\AppDBContext.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwCIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T23:21:24.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AppClubDeportivo\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:27:53.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuariocs.cs",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Models\\Usuariocs.cs",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Models\\Usuariocs.cs",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Models\\Usuariocs.cs",
+              "RelativeToolTip": "AppClubDeportivo\\Models\\Usuariocs.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T00:31:36.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "AppClubDeportivo\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-15T01:36:07.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "AppClubDeportivo\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "AppClubDeportivo\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-15T01:37:14.211Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

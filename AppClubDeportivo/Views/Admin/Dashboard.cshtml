@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Dashboard Admin";
+}
+
+<h2>Dashboard</h2>
+
+<h3>Gestión de Actividades</h3>
+<a asp-action="CrearActividad" asp-controller="Actividad">Agregar Actividad</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Capacidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var actividad in ViewBag.Actividades)
+        {
+            <tr>
+                <td>@actividad.Nombre</td>
+                <td>@actividad.Capacidad</td>
+                <td>
+                    <a asp-action="EditarActividad" asp-route-id="@actividad.Id">Editar</a> |
+                    <a asp-action="EliminarActividad" asp-route-id="@actividad.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Gestión de Socios</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in ViewBag.Usuarios)
+        {
+            <tr>
+                <td>@usuario.Nombre @usuario.Apellido</td>
+                <td>@usuario.DNI</td>
+                <td>@usuario.Rol</td>
+                <td>
+                    <a asp-action="EditarUsuario" asp-route-id="@usuario.Id">Editar</a> |
+                    <a asp-action="EliminarUsuario" asp-route-id="@usuario.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Gestión de Eventos</h3>
+<a asp-action="CrearEventoAdmin" asp-controller="Evento">Crear Evento</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Sede</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evento in ViewBag.Eventos)
+        {
+            <tr>
+                <td>@evento.Nombre</td>
+                <td>@evento.Sede</td>
+                <td>@evento.Fecha</td>
+                <td>
+                    <a asp-action="EditarEvento" asp-route-id="@evento.Id">Editar</a> |
+                    <a asp-action="EliminarEvento" asp-route-id="@evento.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

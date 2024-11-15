@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    var usuarioNombre = ViewBag.UsuarioNombre ?? "Invitado";
+    var rolUsuario = ViewBag.RolUsuario ?? "Socio";
+}
+
+<header>
+    <div style="float: left;">
+        <h1>Club Deportivo</h1>
+    </div>
+    <div style="float: right;">
+        <span>@usuarioNombre</span>
+        <div>
+            <a asp-action="Perfil" asp-controller="Usuario">Perfil</a>
+            @if (rolUsuario == "Admin")
+            {
+                    <a asp-action="Dashboard" asp-controller="Admin">Dashboard</a>
+            }
+            <a asp-action="Logout" asp-controller="Usuario">Cerrar sesión</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a asp-action="Actividades" asp-controller="Actividad">Actividades</a></li>
+        <li><a asp-action="MisInscripciones" asp-controller="Inscripcion">Mis Inscripciones</a></li>
+        <li><a asp-action="Ejercicios" asp-controller="Ejercicio">Ejercicios</a></li>
+        <li><a asp-action="Sedes" asp-controller="Sede">Sedes</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Actividades</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Actividad</th>
+                <th>Capacidad</th>
+                <th>Fecha de Inscripción</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.Actividades != null)
+            {
+                foreach (var actividad in ViewBag.Actividades)
+                {
+                            <tr>
+                                <td>@actividad.Nombre</td>
+                                <td>@actividad.Capacidad cupos</td>
+                                <td><input type="date" name="fechaInscripcion" /></td>
+                                <td><button>Inscribirse</button></td>
+                            </tr>
+                }
+            }
+            else
+            {
+                    <tr>
+                        <td colspan="4">No hay actividades disponibles.</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Eventos propios</h2>
+    <a asp-action="CrearEvento" asp-controller="Evento">Crear Evento</a>
+
+    <h2>Eventos del Club</h2>
+</main>
