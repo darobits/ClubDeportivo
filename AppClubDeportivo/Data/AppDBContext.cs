@@ -30,8 +30,8 @@ namespace AppClubDeportivo.Data
                 tb.Property(col => col.Correo).HasMaxLength(50);
                 tb.Property(col => col.Telefono).HasMaxLength(20);
                 tb.Property(col => col.DNI).HasMaxLength(20);
-                tb.Property(col => col.Contraseña).HasMaxLength(20);
-                tb.Property(col => col.Rol).HasMaxLength(20); // Define Rol con un límite de caracteres
+                tb.Property(col => col.Contraseña).HasMaxLength(256);
+                tb.Property(col => col.Rol).HasMaxLength(20); 
             });
         }
 

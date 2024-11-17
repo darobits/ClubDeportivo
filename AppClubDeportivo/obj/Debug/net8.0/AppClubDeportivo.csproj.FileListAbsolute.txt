@@ -167,3 +167,4 @@ C:\Users\iQual\source\repos\AppClubDeportivo\AppClubDeportivo\obj\Debug\net8.0\A
 C:\Users\iQual\source\repos\AppClubDeportivo\AppClubDeportivo\obj\Debug\net8.0\AppClubDeportivo.genruntimeconfig.cache
 C:\Users\iQual\source\repos\AppClubDeportivo\AppClubDeportivo\obj\Debug\net8.0\ref\AppClubDeportivo.dll
 C:\Users\iQual\source\repos\AppClubDeportivo\AppClubDeportivo\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\iQual\source\repos\AppClubDeportivo\AppClubDeportivo\obj\Debug\net8.0\AppClubDeportivo.sourcelink.json

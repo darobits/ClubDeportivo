@@ -3,6 +3,7 @@ using AppClubDeportivo.Models;
 using AppClubDeportivo.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AppClubDeportivo.Controllers
 {
@@ -19,7 +20,7 @@ namespace AppClubDeportivo.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            return View("register"); // Especificar el nombre exacto de la vista
+            return View("register"); // Especificar el nombre exacto de la vista correctamente
         }
 
         // Manejar el registro de un nuevo usuario (POST)
@@ -30,7 +31,7 @@ namespace AppClubDeportivo.Controllers
             if (password != confirmarPassword)
             {
                 ViewBag.Error = "Las contraseñas no coinciden.";
-                return View();
+                return View("register"); // Retornar a la vista de registro
             }
 
             // Verificar si ya existe un usuario con ese DNI
@@ -38,7 +39,14 @@ namespace AppClubDeportivo.Controllers
             if (usuarioExistente != null)
             {
                 ViewBag.Error = "Ya existe un usuario con ese DNI.";
-                return View();
+                return View("register");
+            }
+
+            // Verificar si ya existe un usuario con el correo (opcional, pero recomendado)
+            if (_context.Usuarios.Any(u => u.Correo == nuevoUsuario.Correo))
+            {
+                ViewBag.Error = "El correo ya está registrado.";
+                return View("register");
             }
 
             // Establecer la contraseña encriptada
@@ -55,26 +63,44 @@ namespace AppClubDeportivo.Controllers
             return RedirectToAction("Login");
         }
 
-        // Acción para iniciar sesión (ya implementada)
+        // Mostrar el formulario de inicio de sesión (GET)
         [HttpGet]
         public IActionResult Login()
         {
-            return View();
+            return View("login"); // Asegúrate de que esta vista exista y esté correctamente nombrada
         }
 
+        // Manejar la acción de inicio de sesión (POST)
         [HttpPost]
         public IActionResult Login(string dni, string password)
         {
+            // Buscar al usuario por DNI
             var usuario = _context.Usuarios.FirstOrDefault(u => u.DNI == dni);
 
+            // Verificar si el usuario existe y si la contraseña es correcta
             if (usuario != null && usuario.VerifyPassword(password))
             {
+                // Guardar la información del usuario en la sesión
                 HttpContext.Session.SetString("Usuario", Newtonsoft.Json.JsonConvert.SerializeObject(usuario));
+
+                // Redirigir a la página principal después del inicio de sesión exitoso
                 return RedirectToAction("Index", "Home");
             }
 
+            // Si las credenciales son incorrectas, mostrar un mensaje de error
             ViewBag.Error = "DNI o contraseña incorrectos.";
-            return View();
+            return View("login");
+        }
+
+        // Acción para cerrar sesión
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            // Limpiar la sesión del usuario
+            HttpContext.Session.Clear();
+
+            // Redirigir al formulario de inicio de sesión
+            return RedirectToAction("Login");
         }
     }
 }
