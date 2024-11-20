@@ -1,65 +1,159 @@
+using AppClubDeportivo.Data;
 using AppClubDeportivo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace AppClubDeportivo.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDBContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDBContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
+        // Acción principal (Index)
         public IActionResult Index()
         {
-            // Obtener la información del usuario desde la sesión
-            var usuarioJson = HttpContext.Session.GetString("Usuario");
-
-            // Si no existe la sesión, redirigir al login
-            if (string.IsNullOrEmpty(usuarioJson))
+            if (!ValidarSesionActiva(out Usuario usuario))
             {
-                return RedirectToAction("Login", "Usuario");
+                return RedirectToAction("Login", "Usuario"); 
             }
 
-            Usuario usuario;
-            try
-            {
-                // Intentar deserializar la información del usuario
-                usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
-            }
-            catch (Exception)
-            {
-                // Si ocurre un error en la deserialización, redirigir al login
-                return RedirectToAction("Login", "Usuario");
-            }
-
-            // Guardar el nombre y rol del usuario para mostrarlo en la vista
             ViewBag.UsuarioNombre = $"{usuario.Nombre} {usuario.Apellido}";
             ViewBag.RolUsuario = usuario.Rol;
 
-            // Verificación de roles (opcional, si se necesitan restricciones por rol)
             if (usuario.Rol == "Admin")
             {
-                // Si es Admin, redirigir al Dashboard de administración
                 return RedirectToAction("Dashboard", "Admin");
             }
-            else if (usuario.Rol == "Socio")
+
+            // Obtener los eventos desde la base de datos
+            var eventos = _context.Eventos.ToList();
+
+            // Pasar los eventos a la vista
+            return View(eventos);
+        }
+
+
+        // Acción para crear un evento
+        [HttpPost]
+        public IActionResult CrearEvento(string nombre, string sede, DateTime fecha, string descripcion)
+        {
+            if (!ValidarSesionActiva(out Usuario usuario))
             {
-                // Si es Socio, permitir el acceso a la vista principal del socio
-                ViewBag.EsAdmin = false; // Usado para personalizar la vista
+                return RedirectToAction("Login", "Usuario");
             }
 
-            // Mostrar mensaje de éxito de registro, si existe
-            if (TempData["RegistroExitoso"] != null)
+            // Crear un nuevo evento
+            var evento = new Evento
             {
-                ViewBag.MensajeExito = TempData["RegistroExitoso"];
+                Nombre = nombre,
+                Sede = sede,
+                Fecha = fecha,
+                Descripcion = descripcion
+            };
+
+            // Guardar el evento en la base de datos
+            _context.Eventos.Add(evento);
+            _context.SaveChanges();
+
+            // Redirigir a la vista principal (Index)
+            return RedirectToAction("Index");
+        }
+
+        // Acción para eliminar un evento
+        [HttpPost]
+        public IActionResult EliminarEvento(int id)
+        {
+            if (!ValidarSesionActiva(out Usuario usuario))
+            {
+                return RedirectToAction("Login", "Usuario");
             }
 
-            return View();
+            // Buscar el evento por ID
+            var evento = _context.Eventos.Find(id);
+            if (evento != null)
+            {
+                // Eliminar el evento de la base de datos
+                _context.Eventos.Remove(evento);
+                _context.SaveChanges();
+            }
+
+            // Redirigir a la vista principal (Index)
+            return RedirectToAction("Index");
+        }
+
+        // Acción para mostrar el formulario de edición de evento
+        [HttpGet]
+        public IActionResult EditarEvento(int id)
+        {
+            if (!ValidarSesionActiva(out Usuario usuario))
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            // Buscar el evento por ID
+            var evento = _context.Eventos.Find(id);
+            if (evento == null)
+            {
+                return NotFound();
+            }
+
+            // Pasar el evento a la vista de edición
+            return View(evento);
+        }
+
+        // Acción para guardar los cambios del evento editado
+        [HttpPost]
+        public IActionResult EditarEvento(Evento evento)
+        {
+            if (!ValidarSesionActiva(out Usuario usuario))
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Actualizar el evento en la base de datos
+                _context.Eventos.Update(evento);
+                _context.SaveChanges();
+
+                // Redirigir a la vista principal (Index)
+                return RedirectToAction("Index");
+            }
+
+            // Si el modelo no es válido, volver a mostrar el formulario de edición
+            return View(evento);
+        }
+
+        // Método privado para validar si la sesión está activa
+        private bool ValidarSesionActiva(out Usuario usuario)
+        {
+            usuario = null;
+
+            var usuarioJson = HttpContext.Session.GetString("Usuario");
+            if (string.IsNullOrEmpty(usuarioJson))
+            {
+                return false;
+            }
+
+            try
+            {
+                usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

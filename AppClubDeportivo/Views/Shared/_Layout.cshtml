@@ -15,7 +15,10 @@
     <!-- Header -->
     <header class="bg-primary text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="m-0">AppClubDeportivo</h1>
+            <!-- Logo como enlace para redirigir al Index -->
+            <a href="@Url.Action("Index", "Home")" class="text-white text-decoration-none">
+                <h1 class="m-0">AppClubDeportivo</h1>
+            </a>
             <div class="text-end">
                 <span class="fw-bold">@usuarioNombre</span>
                 <div class="mt-2">
@@ -24,7 +27,9 @@
                     {
                         <a class="btn btn-light btn-sm me-2" asp-action="Dashboard" asp-controller="Admin">Dashboard</a>
                     }
-                    <a class="btn btn-danger btn-sm" asp-action="Logout" asp-controller="Usuario">Cerrar sesión</a>
+                    <form action="@Url.Action("Logout", "Usuario")" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Cerrar sesión</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -38,17 +43,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
+                   
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Actividades" asp-controller="Actividad">Actividades</a>
+                        <a class="nav-link" asp-action="MisInscripciones" asp-controller="Home">Mis Inscripciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="MisInscripciones" asp-controller="Inscripcion">Mis Inscripciones</a>
+                        <a class="nav-link" asp-action="Ejercicios" asp-controller="Home">Ejercicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Ejercicios" asp-controller="Ejercicio">Ejercicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-action="Sedes" asp-controller="Sede">Sedes</a>
+                        <a class="nav-link" asp-action="Sedes" asp-controller="Home">Sedes</a>
                     </li>
                 </ul>
             </div>

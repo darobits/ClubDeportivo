@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Crear Evento";
+}
+
+<h2>Crear Evento</h2>
+
+<form action="@Url.Action("CrearEvento", "Home")" method="post">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre del Evento</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+    </div>
+    <div class="mb-3">
+        <label for="Sede" class="form-label">Sede</label>
+        <select class="form-select" id="Sede" name="Sede" required>
+            <option value="">Seleccione una sede</option>
+            <option value="Almagro">Almagro</option>
+            <option value="Retiro">Retiro</option>
+            <option value="Microcentro">Microcentro</option>
+            <option value="Belgrano">Belgrano</option>
+            <option value="Devoto">Devoto</option>
+            <option value="Palermo">Palermo</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="Fecha" class="form-label">Fecha</label>
+        <input type="datetime-local" class="form-control" id="Fecha" name="Fecha" required />
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="Descripcion" name="Descripcion" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Evento</button>
+</form>
+
+<a href="@Url.Action("Index", "Home")" class="btn btn-secondary mt-3">Cancelar</a>

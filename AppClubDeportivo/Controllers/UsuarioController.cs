@@ -2,7 +2,7 @@
 using AppClubDeportivo.Models;
 using AppClubDeportivo.Data;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AppClubDeportivo.Controllers
 {
@@ -16,76 +16,62 @@ namespace AppClubDeportivo.Controllers
         }
 
         // Mostrar el formulario de registro (GET)
+        // Mostrar el formulario de registro (GET)
         [HttpGet]
         public IActionResult Register()
         {
-            return View("register");
+            return View("Register");
         }
 
         // Registro de un nuevo usuario (POST)
         [HttpPost]
-        public IActionResult Registro(Usuario nuevoUsuario, string password, string confirmarPassword)
+        public IActionResult Registro(Usuario nuevoUsuario, string Password, string ConfirmarPassword)
         {
-            // Validar que el modelo sea válido
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Error = "Datos inválidos. Por favor, verifica los campos.";
-                return View("register");
-            }
-
             // Validar que las contraseñas coincidan
-            if (password != confirmarPassword)
+            if (Password != ConfirmarPassword)
             {
                 ViewBag.Error = "Las contraseñas no coinciden.";
-                return View("register");
+                return View("Register");
             }
 
             // Verificar si ya existe un usuario con el mismo DNI o correo
             var usuarioExistente = _context.Usuarios
                 .FirstOrDefault(u => u.DNI == nuevoUsuario.DNI || u.Correo == nuevoUsuario.Correo);
+
             if (usuarioExistente != null)
             {
                 ViewBag.Error = "El usuario con ese DNI o correo ya está registrado.";
-                return View("register");
+                return View("Register");
             }
 
-            // Establecer la contraseña encriptada
-            try
-            {
-                nuevoUsuario.SetPassword(password);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = "Hubo un problema al establecer la contraseña. Intenta nuevamente.";
-                return View("register");
-            }
-
-            // Asignar rol por defecto 'Socio'
+            // Establecer la contraseña y rol por defecto
+            nuevoUsuario.SetPassword(Password);
             nuevoUsuario.Rol = "Socio";
 
-            // Agregar el usuario a la base de datos
+            // Guardar el usuario en la base de datos
             try
             {
                 _context.Usuarios.Add(nuevoUsuario);
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
-                // En caso de error al guardar el usuario
                 ViewBag.Error = "Hubo un error al registrar el usuario. Intenta nuevamente.";
-                return View("register");
+                return View("Register");
             }
 
-            // Mensaje de éxito de registro
-            TempData["RegistroExitoso"] = "Tu cuenta se ha creado con éxito. Ahora puedes iniciar sesión.";
+            // Redirigir a la página de login con mensaje de éxito
+            TempData["RegistroExitoso"] = "Tu cuenta ha sido creada con éxito. Ahora puedes iniciar sesión.";
             return RedirectToAction("Login");
         }
+
+
 
         // Mostrar el formulario de inicio de sesión (GET)
         [HttpGet]
         public IActionResult Login()
         {
-            return View("login");
+            return View("Login");
         }
 
         // Inicio de sesión (POST)
@@ -96,7 +82,7 @@ namespace AppClubDeportivo.Controllers
             if (string.IsNullOrEmpty(dni) || string.IsNullOrEmpty(password))
             {
                 ViewBag.Error = "Por favor, completa todos los campos.";
-                return View("login");
+                return View("Login");
             }
 
             // Buscar el usuario por DNI
@@ -107,13 +93,18 @@ namespace AppClubDeportivo.Controllers
             if (usuario == null || !usuario.VerifyPassword(password))
             {
                 ViewBag.Error = "DNI o contraseña incorrectos.";
-                return View("login");
+                return View("Login");
             }
 
             // Guardar la información del usuario en la sesión
             HttpContext.Session.SetString("Usuario", Newtonsoft.Json.JsonConvert.SerializeObject(usuario));
 
-            // Redirigir al home o a la página que desees después de login
+            // Redirigir dependiendo del rol
+            if (usuario.Rol == "Administrador")
+            {
+                return RedirectToAction("Dashboard", "Admin"); // Si tienes una vista específica para admins
+            }
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -121,10 +112,10 @@ namespace AppClubDeportivo.Controllers
         [HttpPost]
         public IActionResult Logout()
         {
-            // Limpiar la sesión del usuario
-            HttpContext.Session.Clear();
+            // Eliminar el usuario de la sesión
+            HttpContext.Session.Remove("Usuario");
 
-            // Redirigir a la página de inicio de sesión
+            // Redirigir al Login
             return RedirectToAction("Login", "Usuario");
         }
     }

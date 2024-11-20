@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\wwwroot\\images\\basquet.jpg",
+      "PackagePath": "staticwebassets\\images\\basquet.jpg"
+    },
+    {
+      "Id": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\wwwroot\\images\\club.jpg",
+      "PackagePath": "staticwebassets\\images\\club.jpg"
+    },
+    {
+      "Id": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\wwwroot\\images\\futbol.jpg",
+      "PackagePath": "staticwebassets\\images\\futbol.jpg"
+    },
+    {
       "Id": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

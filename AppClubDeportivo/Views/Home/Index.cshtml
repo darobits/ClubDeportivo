@@ -3,6 +3,29 @@
 }
 
 <h2 class="mb-4">Actividades</h2>
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/basquet.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/club.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/futbol.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead class="table-dark">
@@ -36,7 +59,68 @@
     </table>
 </div>
 
-<h2 class="mt-5">Eventos propios</h2>
-<a class="btn btn-success mb-4" asp-action="CrearEvento" asp-controller="Evento">Crear Evento</a>
+
+
+<!-- Formulario para crear evento -->
+<h2>Crear Evento</h2>
+<form action="@Url.Action("CrearEvento", "Home")" method="post" class="mb-4">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre del Evento</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+    </div>
+    <div class="mb-3">
+        <label for="Sede" class="form-label">Sede</label>
+        <select class="form-select" id="Sede" name="Sede" required>
+            <option value="">Seleccione una sede</option>
+            <option value="Almagro">Almagro</option>
+            <option value="Retiro">Retiro</option>
+            <option value="Microcentro">Microcentro</option>
+            <option value="Belgrano">Belgrano</option>
+            <option value="Devoto">Devoto</option>
+            <option value="Palermo">Palermo</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="Fecha" class="form-label">Fecha</label>
+        <input type="datetime-local" class="form-control" id="Fecha" name="Fecha" required />
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="Descripcion" name="Descripcion" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Evento</button>
+</form>
+
+<!-- Tabla de eventos -->
+<h3>Eventos Propios</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Sede</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evento in Model)
+        {
+            <tr>
+                <td>@evento.Nombre</td>
+                <td>@evento.Sede</td>
+                <td>@evento.Fecha</td>
+                <td>@evento.Descripcion</td>
+                <td>
+                    <a href="@Url.Action("EditarEvento", "Home", new { id = evento.Id })" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="@Url.Action("EliminarEvento", "Home", new { id = evento.Id })" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 
 <h2>Eventos del Club</h2>

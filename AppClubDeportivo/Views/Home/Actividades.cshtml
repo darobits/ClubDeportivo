@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AppClubDeportivo.Models.Actividad>
+
+@{
+    ViewData["Title"] = "Actividades Disponibles";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Actividades Disponibles</h2>
+
+    <div class="row">
+        @foreach (var actividad in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@actividad.Nombre</h5>
+                        <p class="card-text">@actividad.Descripcion</p>
+                        <p><strong>Horario:</strong> @actividad.Horario</p>
+                        <a href="@Url.Action("Inscribirse", "Actividades", new { id = actividad.Id })" class="btn btn-primary">Inscribirse</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
