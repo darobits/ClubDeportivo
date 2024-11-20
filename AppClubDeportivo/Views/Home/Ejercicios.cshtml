@@ -1,11 +1,21 @@
-﻿@{
+﻿@model IEnumerable<AppClubDeportivo.Models.Ejercicio>
+
+@{
     ViewData["Title"] = "Ejercicios";
 }
-@model IEnumerable<AppClubDeportivo.Models.Ejercicio>
+
 <div class="container my-5">
     <h2 class="text-center mb-4">Ejercicios para Mejorar tu Calidad de Vida</h2>
 
-    @if (Model != null && Model.Any()) 
+    @if (Model == null)
+    {
+        <p>Error: El modelo es null.</p>
+    }
+    else if (!Model.Any())
+    {
+        <p>No hay ejercicios disponibles en este momento.</p>
+    }
+    else
     {
         <div class="row">
             @foreach (var ejercicio in Model)
@@ -22,10 +32,6 @@
                 </div>
             }
         </div>
-    }
-    else
-    {
-        <p>No hay ejercicios disponibles en este momento.</p>
     }
 </div>
 
