@@ -30,16 +30,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Home/Ejercicios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFamVyY2ljaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Home/MisInscripciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNaXNJbnNjcmlwY2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Home/Sedes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Shared/_LayoutPublico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQdWJsaWNvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -48,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Usuario/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Usuario/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/iQual/source/repos/AppClubDeportivo/AppClubDeportivo/Views/Usuario/Register.cshtml]

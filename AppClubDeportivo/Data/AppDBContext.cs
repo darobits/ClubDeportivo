@@ -13,15 +13,17 @@ namespace AppClubDeportivo.Data
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Actividad> Actividades { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
 
 
 
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) //nos permite definir las caracteristicas de nuestra tabla
         {
             //base.OnModelCreating(modelBuilder);
 
-
+             
             modelBuilder.Entity<Usuario>(tb => {
                 tb.HasKey(col => col.Id);
                 tb.Property(col => col.Id).UseIdentityColumn().ValueGeneratedOnAdd();
@@ -43,7 +45,35 @@ namespace AppClubDeportivo.Data
             SaveChanges();
         }
 
+        public void InicializarAdministrador()
+        {
+
+            if (!Usuarios.Any(u => u.DNI == "42199974"))
+            {
+                var admin = new Usuario
+                {
+                    Nombre = "Admin",
+                    Apellido = "Principal",
+                    DNI = "42199974",
+                    Correo = "admin@appclubdeportivo.com",
+                    Telefono = "1131377110",
+                    Rol = "Administrador"
+                };
+
+
+                admin.SetPassword("admin123");
+
+
+                Usuarios.Add(admin);
+                SaveChanges();
+            }
+        }
+
 
     }
     
 }
+
+        
+        
+

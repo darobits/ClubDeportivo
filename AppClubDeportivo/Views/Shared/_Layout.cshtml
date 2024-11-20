@@ -1,49 +1,70 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var usuarioNombre = ViewBag.UsuarioNombre ?? "Invitado";
+    var rolUsuario = ViewBag.RolUsuario ?? "Socio";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AppClubDeportivo</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AppClubDeportivo.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppClubDeportivo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!-- Header -->
+    <header class="bg-primary text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="m-0">AppClubDeportivo</h1>
+            <div class="text-end">
+                <span class="fw-bold">@usuarioNombre</span>
+                <div class="mt-2">
+                    <a class="btn btn-light btn-sm me-2" asp-action="Perfil" asp-controller="Usuario">Perfil</a>
+                    @if (rolUsuario == "Admin")
+                    {
+                        <a class="btn btn-light btn-sm me-2" asp-action="Dashboard" asp-controller="Admin">Dashboard</a>
+                    }
+                    <a class="btn btn-danger btn-sm" asp-action="Logout" asp-controller="Usuario">Cerrar sesión</a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - AppClubDeportivo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Actividades" asp-controller="Actividad">Actividades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="MisInscripciones" asp-controller="Inscripcion">Mis Inscripciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Ejercicios" asp-controller="Ejercicio">Ejercicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Sedes" asp-controller="Sede">Sedes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="container my-4">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="m-0">© 2024 AppClubDeportivo. Todos los derechos reservados.</p>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

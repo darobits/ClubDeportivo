@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Actividades";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Actividades Disponibles</h2>
+
+    <!-- Tabla de Actividades -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Horario</th>
+                <th>Inscribirse</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actividad in Model)
+            {
+                <tr>
+                    <td>@actividad.Nombre</td>
+                    <td>@actividad.Descripcion</td>
+                    <td>@actividad.Horario</td>
+                    <td>
+                        <a href="@Url.Action("Inscribirse", "Actividades", new { id = actividad.Id })" class="btn btn-primary">Inscribirse</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

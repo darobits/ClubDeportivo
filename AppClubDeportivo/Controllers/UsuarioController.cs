@@ -3,7 +3,6 @@ using AppClubDeportivo.Models;
 using AppClubDeportivo.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace AppClubDeportivo.Controllers
 {
@@ -20,46 +19,65 @@ namespace AppClubDeportivo.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            return View("register"); // Especificar el nombre exacto de la vista correctamente
+            return View("register");
         }
 
-        // Manejar el registro de un nuevo usuario (POST)
+        // Registro de un nuevo usuario (POST)
         [HttpPost]
         public IActionResult Registro(Usuario nuevoUsuario, string password, string confirmarPassword)
         {
+            // Validar que el modelo sea válido
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Error = "Datos inválidos. Por favor, verifica los campos.";
+                return View("register");
+            }
+
             // Validar que las contraseñas coincidan
             if (password != confirmarPassword)
             {
                 ViewBag.Error = "Las contraseñas no coinciden.";
-                return View("register"); // Retornar a la vista de registro
-            }
-
-            // Verificar si ya existe un usuario con ese DNI
-            var usuarioExistente = _context.Usuarios.FirstOrDefault(u => u.DNI == nuevoUsuario.DNI);
-            if (usuarioExistente != null)
-            {
-                ViewBag.Error = "Ya existe un usuario con ese DNI.";
                 return View("register");
             }
 
-            // Verificar si ya existe un usuario con el correo (opcional, pero recomendado)
-            if (_context.Usuarios.Any(u => u.Correo == nuevoUsuario.Correo))
+            // Verificar si ya existe un usuario con el mismo DNI o correo
+            var usuarioExistente = _context.Usuarios
+                .FirstOrDefault(u => u.DNI == nuevoUsuario.DNI || u.Correo == nuevoUsuario.Correo);
+            if (usuarioExistente != null)
             {
-                ViewBag.Error = "El correo ya está registrado.";
+                ViewBag.Error = "El usuario con ese DNI o correo ya está registrado.";
                 return View("register");
             }
 
             // Establecer la contraseña encriptada
-            nuevoUsuario.SetPassword(password);
+            try
+            {
+                nuevoUsuario.SetPassword(password);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Hubo un problema al establecer la contraseña. Intenta nuevamente.";
+                return View("register");
+            }
 
-            // Asignar un rol por defecto de 'Socio'
+            // Asignar rol por defecto 'Socio'
             nuevoUsuario.Rol = "Socio";
 
-            // Guardar el nuevo usuario en la base de datos
-            _context.Usuarios.Add(nuevoUsuario);
-            _context.SaveChanges();
+            // Agregar el usuario a la base de datos
+            try
+            {
+                _context.Usuarios.Add(nuevoUsuario);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // En caso de error al guardar el usuario
+                ViewBag.Error = "Hubo un error al registrar el usuario. Intenta nuevamente.";
+                return View("register");
+            }
 
-            // Redirigir a la página de inicio de sesión después de registrarse
+            // Mensaje de éxito de registro
+            TempData["RegistroExitoso"] = "Tu cuenta se ha creado con éxito. Ahora puedes iniciar sesión.";
             return RedirectToAction("Login");
         }
 
@@ -67,40 +85,47 @@ namespace AppClubDeportivo.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View("login"); // Asegúrate de que esta vista exista y esté correctamente nombrada
-        }
-
-        // Manejar la acción de inicio de sesión (POST)
-        [HttpPost]
-        public IActionResult Login(string dni, string password)
-        {
-            // Buscar al usuario por DNI
-            var usuario = _context.Usuarios.FirstOrDefault(u => u.DNI == dni);
-
-            // Verificar si el usuario existe y si la contraseña es correcta
-            if (usuario != null && usuario.VerifyPassword(password))
-            {
-                // Guardar la información del usuario en la sesión
-                HttpContext.Session.SetString("Usuario", Newtonsoft.Json.JsonConvert.SerializeObject(usuario));
-
-                // Redirigir a la página principal después del inicio de sesión exitoso
-                return RedirectToAction("Index", "Home");
-            }
-
-            // Si las credenciales son incorrectas, mostrar un mensaje de error
-            ViewBag.Error = "DNI o contraseña incorrectos.";
             return View("login");
         }
 
-        // Acción para cerrar sesión
+        // Inicio de sesión (POST)
+        [HttpPost]
+        public IActionResult Login(string dni, string password)
+        {
+            // Validar si los campos están vacíos
+            if (string.IsNullOrEmpty(dni) || string.IsNullOrEmpty(password))
+            {
+                ViewBag.Error = "Por favor, completa todos los campos.";
+                return View("login");
+            }
+
+            // Buscar el usuario por DNI
+            var usuario = _context.Usuarios
+                .FirstOrDefault(u => u.DNI == dni);
+
+            // Verificar si el usuario existe y si la contraseña es correcta
+            if (usuario == null || !usuario.VerifyPassword(password))
+            {
+                ViewBag.Error = "DNI o contraseña incorrectos.";
+                return View("login");
+            }
+
+            // Guardar la información del usuario en la sesión
+            HttpContext.Session.SetString("Usuario", Newtonsoft.Json.JsonConvert.SerializeObject(usuario));
+
+            // Redirigir al home o a la página que desees después de login
+            return RedirectToAction("Index", "Home");
+        }
+
+        // Cerrar sesión (POST)
         [HttpPost]
         public IActionResult Logout()
         {
             // Limpiar la sesión del usuario
             HttpContext.Session.Clear();
 
-            // Redirigir al formulario de inicio de sesión
-            return RedirectToAction("Login");
+            // Redirigir a la página de inicio de sesión
+            return RedirectToAction("Login", "Usuario");
         }
     }
 }
