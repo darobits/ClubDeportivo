@@ -1,22 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Ejercicios";
 }
+@model IEnumerable<AppClubDeportivo.Models.Ejercicio>
 <div class="container my-5">
     <h2 class="text-center mb-4">Ejercicios para Mejorar tu Calidad de Vida</h2>
 
-    <div class="row">
-        @foreach (var ejercicio in Model)
-        {
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="@ejercicio.ImagenUrl" class="card-img-top" alt="@ejercicio.Nombre">
-                    <div class="card-body">
-                        <h5 class="card-title">@ejercicio.Nombre</h5>
-                        <p class="card-text">@ejercicio.Descripcion</p>
-                        <a href="@ejercicio.VideoUrl" class="btn btn-primary" target="_blank">Ver Ejercicio</a>
+    @if (Model != null && Model.Any()) 
+    {
+        <div class="row">
+            @foreach (var ejercicio in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@ejercicio.ImagenUrl" class="card-img-top" alt="@ejercicio.Nombre">
+                        <div class="card-body">
+                            <h5 class="card-title">@ejercicio.Nombre</h5>
+                            <p class="card-text">@ejercicio.Descripcion</p>
+                            <a href="@ejercicio.VideoUrl" class="btn btn-primary" target="_blank">Ver Ejercicio</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No hay ejercicios disponibles en este momento.</p>
+    }
 </div>
+

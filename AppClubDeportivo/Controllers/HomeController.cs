@@ -61,5 +61,11 @@ namespace AppClubDeportivo.Controllers
 
             return View();
         }
+        // Nueva acción para la vista Ejercicios
+        public IActionResult Ejercicios()
+        {
+            // Aquí puedes agregar cualquier lógica que necesites, como cargar datos de ejercicios
+            return View();  // Esto devolverá la vista "Ejercicios.cshtml" ubicada en Views/Home/
+        }
     }
 }
