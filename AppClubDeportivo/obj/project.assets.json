@@ -5735,29 +5735,30 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.Identity >= 2.2.0",
+      "Microsoft.EntityFrameworkCore >= 9.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\iQual\\.nuget\\packages\\": {},
+    "C:\\Users\\Agustin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\AppClubDeportivo.csproj",
+      "projectUniqueName": "C:\\Users\\Agustin\\Source\\Repos\\ClubDeportivo2\\AppClubDeportivo\\AppClubDeportivo.csproj",
       "projectName": "AppClubDeportivo",
-      "projectPath": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\AppClubDeportivo.csproj",
-      "packagesPath": "C:\\Users\\iQual\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\iQual\\source\\repos\\AppClubDeportivo\\AppClubDeportivo\\obj\\",
+      "projectPath": "C:\\Users\\Agustin\\Source\\Repos\\ClubDeportivo2\\AppClubDeportivo\\AppClubDeportivo.csproj",
+      "packagesPath": "C:\\Users\\Agustin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Agustin\\Source\\Repos\\ClubDeportivo2\\AppClubDeportivo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\iQual\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Agustin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5766,7 +5767,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5783,8 +5783,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -5793,6 +5794,10 @@
           "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[9.0.0, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
@@ -5828,8 +5833,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.Security.Cryptography.Xml\" 4.5.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-vh55-786g-wjwj",
+      "libraryId": "System.Security.Cryptography.Xml",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
